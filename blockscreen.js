@@ -17,18 +17,11 @@ blockedSites.forEach(site => {
     const originalUrl = window.location.href;
 
     //list of html prompt pages
-    const promptpages = ["breathing.html", "elevator.html"];
+    const promptpages = ["breathing.html"];
 
     //block the site by injecting one of the prompts html into it
-    loadHtmlFile(getRandomElement(promptpages, 30000));
+    loadHtmlFile(getRandomElement(promptpages));
 
-
-    // Block the site by injecting a custom message
-    document.body.innerHTML = `
-      <div>
-        <h1>Access to this site is blocked!</h1>
-      </div>
-    `;
   }
 });
 
@@ -39,7 +32,7 @@ function getRandomElement(arr) {
   }
 
 //loads new prompt html into the blacklisted webpage for 30 seconds before redirecting to the url again. 
-function loadHtmlFile(file, delayInMilliseconds) {
+function loadHtmlFile(file) {
     fetch(file)
       .then(response => {
         if (!response.ok) throw new Error("Failed to load the HTML file");
@@ -49,14 +42,14 @@ function loadHtmlFile(file, delayInMilliseconds) {
         document.getElementById("content").innerHTML = htmlContent;
         setTimeout(() => {
             document.body.innerHTML = originalContent; // Restore original content
-          }, delayInMilliseconds);
+          }, 30000);
       })
       .catch(error => console.error("Error:", error));
   }
 
   
 //save the og webpage so it can change back, loads the new prompt for 30 seconds
-function replaceHtmlTemporarily(newHtmlFile, delayInMilliseconds) {
+function replaceHtmlTemporarily(newHtmlFile) {
     // saving the original content
     const originalContent = document.body.innerHTML;
      // Load and replace with new HTML content
@@ -73,7 +66,7 @@ function replaceHtmlTemporarily(newHtmlFile, delayInMilliseconds) {
     // After the specified delay, restore the original content
     setTimeout(() => {
       document.body.innerHTML = originalContent; // Restore original content
-    }, delayInMilliseconds);
+    }, 30000);
   })
   .catch(error => console.error("Error:", error));
 }
