@@ -21,7 +21,6 @@
 
     "action": {
       "default_title": "BuddyLock",
-      "default_popup": "Index.html",
       "default_icon": "icon.png"
     }
   }
