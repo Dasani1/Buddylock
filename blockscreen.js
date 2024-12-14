@@ -1,5 +1,5 @@
 const blockedSites = ["facebook.com", "instagram.com", "youtube.com"];
-let safe_mode = 30
+let safe_mode = 2
 const Safe = setInterval(() => {
   safe_mode--;
 
@@ -8,10 +8,11 @@ const Safe = setInterval(() => {
 
 if (safe_mode <= 0) {
   clearInterval(Safe);
+  let original = window.location.href
 // Check if current page matches any blocked site
 blockedSites.forEach(site => {
   if (window.location.hostname.includes(site)) {
-    let place = site;
+    let place = original;
 
 
     const link = document.createElement("link");
@@ -23,6 +24,9 @@ blockedSites.forEach(site => {
     // Append the <link> element to the <head>
     document.head.appendChild(link);
 
+    //getting breathing gif
+    const gifUrl = chrome.runtime.getURL("424-breathing.gif");
+
 
     // Block the site by injecting a custom message
     document.body.innerHTML = `
@@ -30,7 +34,7 @@ blockedSites.forEach(site => {
         <h1>Access to this site is blocked! You'll get access in <span id="timer"></span> seconds</h1>
       </div>`
     ;
-    let countdown = 5;
+    let countdown = 30;
     const timerElement = document.getElementById("timer")
 
 
