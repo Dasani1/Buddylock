@@ -1,5 +1,5 @@
 const blockedSites = ["facebook.com", "instagram.com", "youtube.com"];
-let safe_mode = 2
+let safe_mode = 10
 const Safe = setInterval(() => {
   safe_mode--;
 
