@@ -32,9 +32,7 @@ blockedSites.forEach(site => {
     document.body.innerHTML = `
       <div>
         <h1 style="color:white; text-align:center;">Access to this site is blocked! You'll get access in <span id="timer"></span> seconds</h1>
-        <body>
-  <img src="424-breathing.gif" alt="Breathing GIF">
-</body>
+        
       </div>`
     ;
     let countdown = 30;
