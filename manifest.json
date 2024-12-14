@@ -1,10 +1,24 @@
 {
     "manifest_version": 3,
-    "name": "Hello World Extension",
+    "name": "HBuddyLock",
     "version": "1.0",
-    "description": "A simple extension that shows 'Hello World' in a bubble when clicked.",
+    "description": "An extension that softblocks websites with a timer to reduce screen time usage.",
+
+    "permissions": ["webRequest", "webRequestBlocking", "declarativeNetRequest", "tabs"],
+    "host_permissions": ["*://*/*"],
+
+    "content_scripts": [
+      {
+        "matches": ["*://*/*"],
+        "js": ["blockscreen.js"],
+        "css": ["blocker.css"]
+      }
+    ],
+
     "action": {
-      "default_popup": "popup.html"
+      "default_title": "BuddyLock",
+      "default_popup": "popup.html",
+      "default_icon": "icon.png"
     }
   }
   
