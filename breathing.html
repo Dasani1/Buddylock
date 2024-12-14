@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Take a breath! Take a break!</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+
+        /* Popup Styles */
+        .popup {
+            display: none; /* Hidden by default */
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 90%;
+            max-width: 400px;
+            background: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            z-index: 1000;
+        }
+
+        .popup-header {
+            background-color: #0078d7;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 8px 8px 0 0;
+            font-size: 1.25em;
+        }
+
+        .popup-body {
+            padding: 20px;
+            font-size: 1em;
+            color: #333;
+            text-align: center;
+        }
+
+        .popup-footer {
+            padding: 10px;
+            text-align: right;
+            border-top: 1px solid #ddd;
+        }
+
+        .popup-footer button {
+            padding: 8px 15px;
+            background-color: #0078d7;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.9em;
+        }
+
+        .popup-footer button:hover {
+            background-color: #005bb5;
+        }
+
+        /* Overlay Styles */
+        .overlay {
+            display: none; /* Hidden by default */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+        }
+    </style>
+</head>
+<body>
+
+    <button onclick="openPopup()">Show Popup</button>
+
+    <!-- Overlay -->
+    <div class="overlay" id="overlay"></div>
+
+    <!-- Popup -->
+    <div class="popup" id="popup">
+        <div class="popup-header">Popup Title</div>
+        <div class="popup-body">
+            <p>https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExajYxcjdkOHZrZG1mdngwMGRsczZ2YnlmNXJldW82Y3p1d202enA5eSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/y8XSM2b020bw9J9Qmc/giphy.gif</p>
+        </div>
+        <div class="popup-footer">
+            <button onclick="closePopup()">Close</button>
+        </div>
+    </div>
+
+    <script>
+        // Open Popup
+        function openPopup() {
+            document.getElementById("popup").style.display = "block";
+            document.getElementById("overlay").style.display = "block";
+        }
+
+        // Close Popup
+        function closePopup() {
+            document.getElementById("popup").style.display = "none";
+            document.getElementById("overlay").style.display = "none";
+        }
+    </script>
+
+</body>
+</html>
+
