@@ -1,0 +1,16 @@
+document.addEventListener('DOMContentLoaded', () => {
+  const container = document.getElementById('hello-container');
+  console.log("Hello World Extension Loaded");
+});
+
+const button = document.querySelector("input");
+const paragraph = document.querySelector("p");
+
+button.addEventListener("click", updateButton);
+
+function updateButton() {
+    if (button.value === "Press"){
+        button.value = "Unpress";
+        paragraph.textContent = "Updated Num";
+    }
+}
