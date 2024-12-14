@@ -1,5 +1,5 @@
 const blockedSites = ["facebook.com", "instagram.com", "youtube.com"];
-let safe_mode = 2
+let safe_mode = 10
 const Safe = setInterval(() => {
   safe_mode--;
 
@@ -31,7 +31,7 @@ blockedSites.forEach(site => {
     // Block the site by injecting a custom message
     document.body.innerHTML = `
       <div>
-        <h1>Access to this site is blocked! You'll get access in <span id="timer"></span> seconds</h1>
+        <h1 style="color:white;">Access to this site is blocked! You'll get access in <span id="timer"></span> seconds</h1>
       </div>`
     ;
     let countdown = 30;
