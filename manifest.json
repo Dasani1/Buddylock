@@ -7,6 +7,10 @@
     "permissions": ["webRequest", "webRequestBlocking", "declarativeNetRequest", "tabs"],
     "host_permissions": ["*://*/*"],
 
+    "background": {
+    "service_worker": "background.js" 
+  },
+
     "content_scripts": [
       {
         "matches": ["*://*/*"],
@@ -17,7 +21,7 @@
 
     "action": {
       "default_title": "BuddyLock",
-      "default_popup": "popup.html",
+      "default_popup": "Index.html",
       "default_icon": "icon.png"
     }
   }
